@@ -6,8 +6,6 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.fest.assertions.api.Assertions.assertThat;
 
-import java.util.LinkedList;
-
 import static org.junit.Assert.*;
 
 import static org.mockito.Mockito.*;
@@ -154,26 +152,4 @@ public class LibraryTest {
         library.entryMain();
         assertThat(systemOut().contains("请按正确的格式输入要打印的学生的学号（格式： 学号, 学号,...），按回车提交：\n")).isTrue();
     }
-
-//    @Test
-//    public void testSomeLibraryMethod() {
-//        Library classUnderTest = new Library();
-//        assertTrue("someLibraryMethod should return 'true'", classUnderTest.someLibraryMethod());
-//    }
-//
-//    @Test
-//    public void testMockClass() throws Exception {
-//        // you can mock concrete classes, not only interfaces
-//        LinkedList mockedList = mock(LinkedList.class);
-//
-//        // stubbing appears before the actual execution
-//        String value = "first";
-//        when(mockedList.get(0)).thenReturn(value);
-//
-//        assertEquals(mockedList.get(0), value);
-//
-//    }
-
-
-
 }

@@ -6,7 +6,6 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.regex.Pattern;
 
 public class Library {
 
@@ -31,17 +30,11 @@ public class Library {
     private final static int INDEX_COURSE = 0;
     private final static int INDEX_SCORE = 1;
 
-//    private final static String[] COURSE_ARRAY = {"数学","语文","英语","编程"};
-
     private static List<Student> stuList = new ArrayList<>();
 
     private InputReader readInput = new InputReader();
 
     private final static int NOT_IN_ONE_TO_THREE_CHOOSE_NUM = 4;
-
-//    public boolean someLibraryMethod() {
-//        return true;
-//    }
 
     public Library(InputReader readInput) {
         this.readInput = readInput;
@@ -68,18 +61,11 @@ public class Library {
                 break;
         }
         return isSuccess;
-//        Scanner sc = new Scanner(System.in);
-//        String line;
-//        while(!"".equals(line = sc.nextLine().trim())) {
-//            chooseNum(line, sc);
-//        }
-//        sc.close();
     }
 
     public boolean addStudent(String stuInfo) {
         System.out.print(PRINT_MESSAGE_WHEN_CHOOSE_ONE);
         boolean addSuccess = true;
-//        if (stuInfo != null) {
         if (null != stuInfo && InputReader.checkInputFormat(stuInfo, InputReader.STUDENT_INFO_REG)) {
 
             String[] stuInfoArray = stuInfo.split("，");
@@ -114,9 +100,6 @@ public class Library {
                 stuList.add(student);
             }
 
-//            if (!modifyStuInfoWhenStuExit(stuInfoArray)) {
-//                addStudentWhenStuNotExit(stuInfoArray);
-//            }
             System.out.print("学生"+ stuInfoArray[INDEX_STUDENT_NAME] +"的成绩被添加\n" + PRINT_MESSAGE_WHEN_IN_MAIN);
 
         } else {
@@ -130,7 +113,6 @@ public class Library {
 
         System.out.print(PRINT_MESSAGE_WHEN_CHOOSE_tWO);
         boolean printSuccess = true;
-//        if (stuIdStr != null) {
         if (null != stuIdStr && InputReader.checkInputFormat(stuIdStr, InputReader.STUID_STRING_REG) ) {
             String[] stuIds = stuIdStr.split("，");
 
@@ -148,19 +130,6 @@ public class Library {
                         stuTotalScore += stuList.get(j).getTotalScore();
                         totalScoreList.add(stuList.get(j).getTotalScore());
                         reportCardMsg.append(stuList.get(j).getStudentReportCard());
-
-//                        reportCardMsg.append(stuList.get(j).getName()).append("|");
-//                        for (int k = 0; k < COURSE_ARRAY.length; k++) {
-//                            if (stuList.get(j).getCourseAndScoreMap().containsKey(COURSE_ARRAY[k])) {
-//                                reportCardMsg.append(stuList.get(j).getCourseAndScoreMap().get(COURSE_ARRAY[k])).append("|");
-//                            } else {
-//                                reportCardMsg.append("0").append("|");
-//                            }
-//                        }
-//
-//                        reportCardMsg.append(new DecimalFormat("#0.00").format(stuList.get(j).getAverageScore())).append("|")
-//                            .append(stuList.get(j).getTotalScore()).append("\n");
-
                     }
                 }
             }
@@ -177,44 +146,6 @@ public class Library {
         return printSuccess;
     }
 
-//    public boolean modifyStuInfoWhenStuExit(String[] stuInfoArray) {
-//
-//        boolean isExited = false;
-//
-//        for (int i = 0; i < stuList.size(); i++) {
-//            if (stuList.get(i).getStuId().equals(stuInfoArray[INDEX_STUDENT_ID])) {
-//                isExited = true;
-//                Student exitedStu = stuList.get(i);
-//                stuList.get(i).setName(stuInfoArray[INDEX_STUDENT_NAME]);
-//
-//                Map<String, Integer> courseAndScoreMap = exitedStu.getCourseAndScoreMap();
-//                for (int j = INDEX_STUDENT_FIRST_COURSE; j < stuInfoArray.length; j++) {
-//                    String[] courseAndScore = stuInfoArray[j].split("：");
-//                    courseAndScoreMap.put(courseAndScore[INDEX_COURSE], Integer.parseInt(courseAndScore[INDEX_SCORE]));
-//                }
-//                exitedStu.setCourseAndScoreMap(courseAndScoreMap);
-//                stuList.set(i, exitedStu);
-//            }
-//        }
-//        return isExited;
-//    }
-//
-//    public void addStudentWhenStuNotExit(String[] stuInfoArray) {
-//
-//        Student newStu = new Student();
-//        newStu.setName(stuInfoArray[INDEX_STUDENT_NAME]);
-//        newStu.setStuId(stuInfoArray[INDEX_STUDENT_ID]);
-//
-//        Map<String, Integer> courseAndScoreMap = new HashMap<>();
-//        for (int j = INDEX_STUDENT_FIRST_COURSE; j < stuInfoArray.length; j++) {
-//            String[] courseAndScore = stuInfoArray[j].split("：");
-//            courseAndScoreMap.put(courseAndScore[INDEX_COURSE], Integer.parseInt(courseAndScore[INDEX_SCORE]));
-//        }
-//        newStu.setCourseAndScoreMap(courseAndScoreMap);
-//        stuList.add(newStu);
-//
-//    }
-
     public double getMedian(List<Integer> list){
         double median = 0.0;
         if (list != null && list.size() > 0) {
@@ -227,9 +158,5 @@ public class Library {
         }
         return median;
     }
-
-//    public boolean checkInputFormat(String input, String reg) {
-//        return Pattern.compile(reg).matcher(input).matches();
-//    }
 
 }
