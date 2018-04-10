@@ -61,7 +61,7 @@ public class Student {
                 reportCard.append("0").append("|");
             }
         }
-        reportCard.append(new DecimalFormat("#0.0").format(getAverageScore())).append("|")
+        reportCard.append(new DecimalFormat("#0.00").format(getAverageScore())).append("|")
             .append(getTotalScore()).append("\n");
 
         return reportCard.toString();
