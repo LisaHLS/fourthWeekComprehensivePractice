@@ -9,7 +9,7 @@ import static org.fest.assertions.api.Assertions.assertThat;
 
 public class StudentTest {
 
-    private Student student = null;
+    private Student student;
 
     @Before
     public void beforeEach() {
@@ -37,7 +37,7 @@ public class StudentTest {
 
     @Test
     public void should_return_student_right_report_card_when_have_four_course(){
-        assertThat(student.getStudentReportCard()).isEqualTo("張三|75|95|80|80|82.5|330\n");
+        assertThat(student.getStudentReportCard()).isEqualTo("張三|75|95|80|80|82.50|330\n");
 
     }
 
@@ -48,7 +48,7 @@ public class StudentTest {
         courseAndScore.put("语文",95);
         courseAndScore.put("英语",80);
         student.setCourseAndScoreMap(courseAndScore);
-        assertThat(student.getStudentReportCard()).isEqualTo("張三|75|95|80|0|62.5|250\n");
+        assertThat(student.getStudentReportCard()).isEqualTo("張三|75|95|80|0|62.50|250\n");
 
     }
 
